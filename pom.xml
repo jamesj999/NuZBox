@@ -9,8 +9,8 @@
     <packaging>pom</packaging>
     <version>0.01</version>
     <modules>
-        <module>nuzbox-frontend</module>
         <module>nuzbox-engine</module>
+        <module>nuzbox-frontend</module>
     </modules>
 
     <dependencies>

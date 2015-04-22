@@ -23,6 +23,7 @@ public class TestController {
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String printHello(ModelMap model) {
         LOG.info("I am being run!");
+        modelService.save(null);
         String test = "Test";
         model.addAttribute("testMessage", test);
         return "index";
