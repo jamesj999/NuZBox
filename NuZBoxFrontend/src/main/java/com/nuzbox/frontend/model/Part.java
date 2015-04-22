@@ -1,5 +1,7 @@
 package com.nuzbox.frontend.model;
 
+import org.hibernate.annotations.Type;
+
 import java.io.Serializable;
 import javax.persistence.*;
 
@@ -17,6 +19,7 @@ public class Part implements Serializable {
     @ManyToOne
     private Binary binary;
 
+    @Type(type="com.nuzbox.frontend.persistence.types.PaddedStringType")
     @Column(length = 255)
     private Character[] message;
     private Long articleRef;
