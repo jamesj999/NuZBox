@@ -64,8 +64,6 @@
                 <version>2.6</version>
                 <configuration>
                     <warSourceDirectory>src/main/webapp/</warSourceDirectory>
-                    <source>1.7</source>
-                    <target>1.7</target>
                 </configuration>
             </plugin>
         </plugins>
