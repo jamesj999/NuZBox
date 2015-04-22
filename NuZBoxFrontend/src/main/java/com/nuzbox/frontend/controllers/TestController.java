@@ -16,9 +16,10 @@ public class TestController {
 
     static Logger log = Logger.getLogger(TestController.class.getName());
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String printHello(Model model) {
+    public String printHello(ModelMap model) {
         log.info("I am being run!");
-        model.addAttribute("message", "Hello Spring MVC Framework!");
+        String test = "Test";
+        model.addAttribute("testMessage", test);
         return "index";
     }
 
