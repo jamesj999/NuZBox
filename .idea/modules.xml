@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/NuZBox.iml" filepath="$PROJECT_DIR$/.idea/NuZBox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NuZBoxFrontend/NuZBoxFrontend.iml" filepath="$PROJECT_DIR$/NuZBoxFrontend/NuZBoxFrontend.iml" />
     </modules>
   </component>
 </project>

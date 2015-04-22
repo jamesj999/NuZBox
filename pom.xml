@@ -4,9 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>groupId</groupId>
+    <groupId>NuZBox</groupId>
     <artifactId>NuZBox</artifactId>
+    <packaging>pom</packaging>
     <version>0.01</version>
+    <modules>
+        <module>NuZBoxFrontend</module>
+    </modules>
 
     <dependencies>
         <dependency>
@@ -14,11 +18,40 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.3.2</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-api</artifactId>
-            <version>7.0.19</version>
-        </dependency>
     </dependencies>
-    
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <!-- or if you want to use tomcat 6.x
+                <artifactId>tomcat6-maven-plugin</artifactId>
+                -->
+                <version>2.2</version>
+                <configuration>
+                    <!-- http port -->
+                    <port>9090</port>
+                    <!-- application path always starts with /-->
+                    <path>/${project.build.finalName}</path>
+                    <!-- optional path to a context file -->
+                    <!--<contextFile>${tomcatContextXml}</contextFile>-->
+                    <!-- optional system propoerties you want to add -->
+                    <!--<systemProperties>-->
+                    <!--<appserver.base>${project.build.directory}/appserver-base</appserver.base>-->
+                    <!--<appserver.home>${project.build.directory}/appserver-home</appserver.home>-->
+                    <!--<derby.system.home>${project.build.directory}/appserver-base/logs</derby.system.home>-->
+                    <!--<java.io.tmpdir>${project.build.directory}</java.io.tmpdir>-->
+                    <!--</systemProperties>-->
+                    <!-- if you want to use test dependencies rather than only runtime -->
+                    <!--<useTestClasspath>false</useTestClasspath>-->
+                    <!-- optional if you want to add some extra directories into the classloader -->
+                    <!--<additionalClasspathDirs>-->
+                    <!--<additionalClasspathDir></additionalClasspathDir>-->
+                    <!--</additionalClasspathDirs>-->
+                </configuration>
+                <!-- For any extra dependencies needed when running embedded Tomcat (not WAR dependencies) add them below -->
+            </plugin>
+        </plugins>
+    </build>
 </project>
