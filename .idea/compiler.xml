@@ -23,12 +23,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="NuZBoxFrontend" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="NuZBox" target="1.5" />
-      <module name="NuZBoxFrontend" target="1.5" />
+      <module name="NuZBox" target="1.7" />
+      <module name="NuZBoxFrontend" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
