@@ -8,6 +8,7 @@
         <version>0.01</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+    <url>file://${project.basedir}/nuzbox-engine</url>
 
     <artifactId>nuzbox-engine</artifactId>
 

@@ -7,5 +7,6 @@
    </head>
    <body>
    <h2>${testMessage}</h2>
+   <h2>You put in: ${youPutIn}</h2>
    </body>
 </html>
