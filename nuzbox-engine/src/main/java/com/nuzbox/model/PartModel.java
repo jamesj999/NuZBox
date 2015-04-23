@@ -9,7 +9,7 @@ import javax.persistence.*;
  * Created by Farrell on 22/04/2015.
  */
 @Entity
-public class PartModel extends AbstractModel {
+public class PartModel extends BaseIdentifiableModel {
     private static final long serialVersionUID = 1L;
 
     @Id
