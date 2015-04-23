@@ -21,13 +21,19 @@ public class TestController {
 
     private static final Logger LOG = Logger.getLogger(TestController.class);
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String printHello(ModelMap model, @RequestParam String echo) {
+    @RequestMapping(value = {"/", "/index**"}, method = RequestMethod.GET)
+    public String printHello(ModelMap model) {
         LOG.info("I am being run!");
         modelService.save(null);
         String test = "Test";
         model.addAttribute("testMessage", test);
-        model.addAttribute("youPutIn", echo);
         return "index";
     }
+
+    @RequestMapping(value= "/echo**", method = RequestMethod.GET)
+    public String echo(ModelMap model, @RequestParam String echo) {
+        model.addAttribute("youPutIn", echo);
+        return "echo";
+    }
+
 }
