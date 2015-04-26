@@ -25,6 +25,7 @@
         <processorPath useClasspath="true" />
         <module name="nuzbox-engine" />
         <module name="nuzbox-frontend" />
+        <module name="nuzbox-tasks" />
         <module name="NuZBoxEngine" />
         <module name="NuZBoxFrontend" />
       </profile>
@@ -33,6 +34,7 @@
       <module name="NuZBox" target="1.5" />
       <module name="nuzbox-engine" target="1.5" />
       <module name="nuzbox-frontend" target="1.5" />
+      <module name="nuzbox-tasks" target="1.5" />
       <module name="NuZBoxEngine" target="1.5" />
       <module name="NuZBoxFrontend" target="1.5" />
     </bytecodeTargetLevel>

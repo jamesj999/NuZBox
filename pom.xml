@@ -11,6 +11,7 @@
     <modules>
         <module>nuzbox-engine</module>
         <module>nuzbox-frontend</module>
+        <module>nuzbox-tasks</module>
     </modules>
 
     <dependencies>
@@ -70,8 +71,25 @@
                 <!-- or if you want to use tomcat 6.x
                 <artifactId>tomcat6-maven-plugin</artifactId>
                 -->
+
                 <version>2.2</version>
                 <configuration>
+                    <webapps>
+                        <webapp>
+                            <groupId>com.nuzbox</groupId>
+                            <artifactId>nuzbox-frontend</artifactId>
+                            <version>0.01</version>
+                            <type>war</type>
+                            <asWebapp>true</asWebapp>
+                        </webapp>
+                        <webapp>
+                            <groupId>com.nuzbox</groupId>
+                            <artifactId>nuzbox-tasks</artifactId>
+                            <version>0.01</version>
+                            <type>war</type>
+                            <asWebapp>true</asWebapp>
+                        </webapp>
+                    </webapps>
                     <!-- http port -->
                     <port>9090</port>
                     <!-- application path always starts with /-->

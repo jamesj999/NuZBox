@@ -8,8 +8,8 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>nuzbox-frontend</artifactId>
     <packaging>war</packaging>
-    <name>NuZBoxFrontend Tomcat Webapp</name>
-    <url>http://github.com/jamesj999/NuZBox</url>
+    <name>nuzbox-frontend</name>
+    <url>file://${project.basedir}/nuzbox-frontend</url>
 
     <dependencies>
         <dependency>
@@ -46,7 +46,7 @@
     </dependencies>
 
     <build>
-        <finalName>NuZBoxFrontend</finalName>
+        <finalName>nuzbox-frontend</finalName>
         <sourceDirectory>src/main/java/</sourceDirectory>
         <plugins>
             <plugin>
