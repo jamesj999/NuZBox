@@ -7,8 +7,8 @@
    http://www.springframework.org/schema/context
    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <bean id="modelService" class="com.nuzbox.model.service.impl.DefaultModelService"/>
+    <bean id="modelService" class="com.nuzbox.model.service.impl.DefaultModelService" scope="prototype"/>
 
-    <bean id="hibernateService" class="com.nuzbox.persistence.service.impl.DefaultHibernateService"/>
+    <bean id="hibernateService" class="com.nuzbox.persistence.service.impl.DefaultHibernateService" scope="prototype"/>
 
 </beans>

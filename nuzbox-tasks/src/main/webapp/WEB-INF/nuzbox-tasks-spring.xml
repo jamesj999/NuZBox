@@ -11,6 +11,8 @@
 
     <import resource="classpath:nuzbox-engine-spring.xml"/>
 
-    <bean id="cronJobService" class="com.nuzbox.tasks.service.impl.DefauFUCKltCronJobService"/>
+    <bean id="applicationContextProvider" class="com.nuzbox.tasks.ApplicationContextProvider"/>
+
+    <bean id="cronJobService" class="com.nuzbox.tasks.service.impl.DefaultCronJobService" scope="prototype"/>
 
 </beans>
