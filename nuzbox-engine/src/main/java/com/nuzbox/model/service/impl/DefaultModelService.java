@@ -1,5 +1,6 @@
 package com.nuzbox.model.service.impl;
 
+import com.nuzbox.dao.CronJobDAO;
 import com.nuzbox.model.BaseIdentifiableModel;
 import com.nuzbox.model.service.ModelService;
 import org.apache.log4j.Logger;
@@ -12,6 +13,8 @@ import java.util.Collections;
  * Created by james on 22/04/15.
  */
 public class DefaultModelService implements ModelService {
+    @Autowired
+    CronJobDAO cronJobDAO;
 
     private static final Logger LOG = Logger.getLogger(DefaultModelService.class);
 
@@ -28,6 +31,6 @@ public class DefaultModelService implements ModelService {
     }
 
     public <T extends BaseIdentifiableModel> Collection<T> getAll() {
-        return Collections.EMPTY_LIST;
+        return (Collection<T>) cronJobDAO.getAllCronJobs();
     }
 }

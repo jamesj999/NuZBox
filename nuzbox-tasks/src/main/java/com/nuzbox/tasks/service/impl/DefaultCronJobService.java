@@ -18,27 +18,21 @@ public class DefaultCronJobService implements CronJobService {
     @Autowired
     private ModelService modelService;
 
- //   private Scheduler scheduler;
+    //   private Scheduler scheduler;
 
     private static final Logger LOG = Logger.getLogger(DefaultCronJobService.class);
 
     @Override
     public void initializeCronJobs() {
-        // Start Quartz:
-//        try {
-//            scheduler = StdSchedulerFactory.getDefaultScheduler();
-//            scheduler.start();
+        Collection<CronJobModel> cronJobs = modelService.<CronJobModel>getAll();
 
-            // Retrieve a list of CronJob instances:
-            Collection<CronJobModel> cronJobs = modelService.<CronJobModel>getAll();
-
-            for (CronJobModel cronJob : cronJobs) {
-                // Get the trigger
-                // Register the job with Quartz - might need conversion from model to some compatible object?
-            }
-//        } catch (SchedulerException e) {
-//            LOG.error("There was a problem initializing task scheduler.", e);
-//        }
+        LOG.info("Look at me, I got some jobs...");
+        for (CronJobModel cronJob : cronJobs) {
+            LOG.info(cronJob.getId());
+            LOG.info(cronJob.getSomeOtherShit());
+            LOG.info(cronJob.getEvenMoreShit());
+            LOG.info(cronJob.getYetMoreShit());
+        }
     }
 
     @Override
