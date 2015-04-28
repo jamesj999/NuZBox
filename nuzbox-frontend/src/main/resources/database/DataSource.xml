@@ -16,4 +16,13 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
         <property name="password" value="${jdbc.password}" />
     </bean>
 
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="persistenceExceptionTranslationPostProcessor"
+          class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+
+
 </beans>
