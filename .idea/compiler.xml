@@ -27,22 +27,22 @@
         <module name="NuZBoxFrontend" />
       </profile>
       <profile default="false" name="Annotation profile for nuzbox-tasks" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="nuzbox-tasks" />
       </profile>
       <profile default="false" name="Annotation profile for nuzbox-engine" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="nuzbox-engine" />
       </profile>
       <profile default="false" name="Annotation profile for nuzbox-frontend" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="nuzbox-frontend" />
@@ -53,8 +53,6 @@
       <module name="nuzbox-engine" target="1.7" />
       <module name="nuzbox-frontend" target="1.7" />
       <module name="nuzbox-tasks" target="1.7" />
-      <module name="NuZBoxEngine" target="1.5" />
-      <module name="NuZBoxFrontend" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
