@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.nuzbox.model">
+    <class name="CronJobModel" table="cronjobs">
+        <id name="id" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="someOtherShit" column="some_other_shit" />
+        <property name="yetMoreShit" column="yet_more_shit" />
+        <property name="evenMoreShit" column="even_more_shit" />
+    </class>
+</hibernate-mapping>
