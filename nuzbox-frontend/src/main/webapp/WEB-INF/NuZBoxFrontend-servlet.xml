@@ -14,6 +14,7 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <import resource="classpath:spring4.xml"/>
     <import resource="classpath:nuzbox-engine-spring.xml"/>
     <import resource="spring-security.xml"/>
 
