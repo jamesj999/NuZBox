@@ -20,14 +20,11 @@
         <property name="configLocation" value="classpath:hibernate.cfg.xml" />
     </bean>
 
-    <!--<tx:annotation-driven />-->
+    <!--<tx:annotation-driven /> lol i duno-->
     <bean id="transactionManager"
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
     <bean id="modelService" class="com.nuzbox.model.service.impl.DefaultModelService" scope="prototype"/>
-
-    <bean id="hibernateService" class="com.nuzbox.persistence.service.impl.DefaultHibernateService" scope="prototype"/>
-
 </beans>
