@@ -1,9 +1,15 @@
 package com.nuzbox.tasks.service.impl;
 
-import com.nuzbox.model.CronJobModel;
+import com.nuzbox.tasks.model.CronJobModel;
+import com.nuzbox.model.service.ModelService;
 import com.nuzbox.tasks.service.CronJobService;
+import org.apache.log4j.Logger;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
+import org.quartz.impl.StdSchedulerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -12,16 +18,40 @@ import java.util.List;
 public class DefaultCronJobService implements CronJobService {
     private List<CronJobModel> jobs;
 
+    @Autowired
+    private ModelService modelService;
+
+ //   private Scheduler scheduler;
+
+    private static final Logger LOG = Logger.getLogger(DefaultCronJobService.class);
+
     @Override
     public void initializeCronJobs() {
-        System.out.println("piss\n\n\n\n\n\n\n\npiss");
-        // Retrieve a list of CronJob instances:
-        List<CronJobModel> cronJobs = new ArrayList<CronJobModel>();
+        // Start Quartz:
+//        try {
+//            scheduler = StdSchedulerFactory.getDefaultScheduler();
+//            scheduler.start();
 
-        for(CronJobModel cronJob : cronJobs) {
-            // Get the trigger
-            // Register the job with Quartz - might need conversion from model to some compatible object?
-        }
+            // Retrieve a list of CronJob instances:
+            Collection<CronJobModel> cronJobs = modelService.<CronJobModel>getAll();
+
+            for (CronJobModel cronJob : cronJobs) {
+                // Get the trigger
+                // Register the job with Quartz - might need conversion from model to some compatible object?
+            }
+//        } catch (SchedulerException e) {
+//            LOG.error("There was a problem initializing task scheduler.", e);
+//        }
+    }
+
+    @Override
+    public void shutdownCronJobs() {
+        // Stop quartz
+//        try {
+//            scheduler.shutdown();
+//        } catch (SchedulerException e) {
+//            LOG.error("Could not shutdown task scheduler.", e);
+//        }
     }
 
 }
