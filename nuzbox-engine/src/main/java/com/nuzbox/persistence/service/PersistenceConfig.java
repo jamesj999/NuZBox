@@ -19,16 +19,16 @@ import java.util.Properties;
 /**
  * Created by Farrell on 22/04/2015.
  */
-@Configuration
-@EnableTransactionManagement
-@PropertySource({ "classpath:database.properties" })
-@ComponentScan({ "com.nuzbox.model" })
+//@Configuration
+//@EnableTransactionManagement
+//@PropertySource({ "classpath:database.properties" })
+//@ComponentScan({ "com.nuzbox.model" })
 public class PersistenceConfig {
 
     @Autowired
     private Environment env;
 
-    @Bean
+ //   @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(restDataSource());
@@ -38,7 +38,7 @@ public class PersistenceConfig {
         return sessionFactory;
     }
 
-    @Bean
+ //   @Bean
     public DataSource restDataSource() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
@@ -49,8 +49,8 @@ public class PersistenceConfig {
         return dataSource;
     }
 
-    @Bean
-    @Autowired
+ //   @Bean
+  //  @Autowired
     public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
         HibernateTransactionManager txManager = new HibernateTransactionManager();
         txManager.setSessionFactory(sessionFactory);
@@ -58,7 +58,7 @@ public class PersistenceConfig {
         return txManager;
     }
 
-    @Bean
+//    @Bean
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
     }

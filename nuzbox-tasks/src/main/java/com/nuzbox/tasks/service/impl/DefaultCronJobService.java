@@ -1,12 +1,9 @@
 package com.nuzbox.tasks.service.impl;
 
-import com.nuzbox.tasks.model.CronJobModel;
+import com.nuzbox.model.CronJobModel;
 import com.nuzbox.model.service.ModelService;
 import com.nuzbox.tasks.service.CronJobService;
 import org.apache.log4j.Logger;
-import org.quartz.Scheduler;
-import org.quartz.SchedulerException;
-import org.quartz.impl.StdSchedulerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collection;
