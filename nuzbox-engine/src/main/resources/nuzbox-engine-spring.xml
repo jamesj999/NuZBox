@@ -11,4 +11,5 @@
 
     <bean id="hibernateService" class="com.nuzbox.persistence.service.impl.DefaultHibernateService" scope="prototype"/>
 
+    <import resource="classpath:spring4.xml"/>
 </beans>
