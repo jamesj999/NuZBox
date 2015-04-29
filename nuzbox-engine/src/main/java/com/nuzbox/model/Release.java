@@ -41,10 +41,6 @@ public class Release extends BaseVersionedModel {
         return identity;
     }
 
-    public void setIdentity(Integer identity) {
-        this.identity = identity;
-    }
-
     public Category getCategory() {
         return category;
     }

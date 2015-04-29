@@ -41,10 +41,6 @@ public class Collection extends BaseModel {
         return identity;
     }
 
-    public void setIdentity(Integer identity) {
-        this.identity = identity;
-    }
-
     public String getSubject() {
         return subject;
     }

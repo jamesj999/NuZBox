@@ -37,10 +37,6 @@ public class Binary extends BaseModel {
         return identity;
     }
 
-    public void setIdentity(Long identity) {
-        this.identity = identity;
-    }
-
     public Character[] getName() {
         return name;
     }

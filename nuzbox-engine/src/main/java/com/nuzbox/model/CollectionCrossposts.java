@@ -26,10 +26,6 @@ public class CollectionCrossposts extends BaseModel {
         return identity;
     }
 
-    public void setIdentity(Long identity) {
-        this.identity = identity;
-    }
-
     public Group getGroup() {
         return group;
     }
