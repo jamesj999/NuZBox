@@ -1,12 +1,14 @@
 package com.nuzbox.admin.components;
 
 
+import org.zkoss.zk.ui.Component;
 import org.zkoss.zul.*;
 
 /**
  * Created by Jamesjohnstone on 29/04/15.
  */
 public class NuzboxAdminWindow extends Window {
+
     public NuzboxAdminWindow() {
         setHeight("100%");
         setWidth("100%");
@@ -42,8 +44,41 @@ public class NuzboxAdminWindow extends Window {
     private Center generateCenter() {
         Center centre = new Center();
 
-        Label centreLabel = new Label("Centre");
-        centre.appendChild(centreLabel);
+        Vbox formBox = new Vbox();
+
+        Grid form = new Grid();
+        form.setWidth("30%");
+
+        Columns columns = new Columns();
+        Column attribute = new Column("Attribute");
+        Column value = new Column("Value");
+
+        attribute.setParent(columns);
+        value.setParent(columns);
+
+        Rows rows = new Rows();
+        Row testAttributeRow = new Row();
+        Row anotherTestAttributeRow = new Row();
+
+        testAttributeRow.setParent(rows);
+        anotherTestAttributeRow.setParent(rows);
+
+        Label testAttributeLabel = new Label("Test Attribute");
+        Label anotherTestAttributeLabel = new Label("Another Test Attribute");
+
+        Textbox testAttributeTextbox = new Textbox();
+        Textbox anotherTestAttributeTextbox = new Textbox();
+
+        testAttributeRow.appendChild(testAttributeLabel);
+        testAttributeRow.appendChild(testAttributeTextbox);
+
+        anotherTestAttributeRow.appendChild(anotherTestAttributeLabel);
+        anotherTestAttributeRow.appendChild(anotherTestAttributeTextbox);
+
+        form.appendChild(columns);
+        form.appendChild(rows);
+
+        centre.appendChild(form);
 
         return centre;
     }

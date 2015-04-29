@@ -16,10 +16,28 @@ public class CronJob extends BaseModel {
     private long identity;
 
     @Column
-    private String someOtherShit;
+    private String testAttribute;
+
+    @Column
+    private String anotherTestAttribute;
 
     public long getIdentity() {
         return identity;
     }
 
+    public String getTestAttribute() {
+        return testAttribute;
+    }
+
+    public void setTestAttribute(String testAttribute) {
+        this.testAttribute = testAttribute;
+    }
+
+    public String getAnotherTestAttribute() {
+        return anotherTestAttribute;
+    }
+
+    public void setAnotherTestAttribute(String anotherTestAttribute) {
+        this.anotherTestAttribute = anotherTestAttribute;
+    }
 }
