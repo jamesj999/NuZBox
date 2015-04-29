@@ -30,16 +30,15 @@ public class DefaultModelService implements ModelService {
     @Transactional
     @Override
     public void save(BaseModel model) {
-        Session session = sessionFactory.getCurrentSession();
+        Session session = sessionFactory.openSession();
         try {
-            session.getTransaction().begin();
+            session.beginTransaction();
             session.saveOrUpdate(model);
             session.getTransaction().commit();
         } catch(HibernateException e) {
             LOG.error("There was a problem saving...", e);
             session.getTransaction().rollback();
         } finally {
-            // I'm totally not convinced this method should be used:
             session.close();
         }
     }
