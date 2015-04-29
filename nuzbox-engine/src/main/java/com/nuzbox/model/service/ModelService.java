@@ -1,6 +1,6 @@
 package com.nuzbox.model.service;
 
-import com.nuzbox.model.BaseIdentifiableModel;
+import com.nuzbox.model.BaseModel;
 
 import java.util.Collection;
 
@@ -8,9 +8,9 @@ import java.util.Collection;
  * Created by james on 22/04/15.
  */
 public interface ModelService {
-    public void save(BaseIdentifiableModel model);
+    public void save(BaseModel model);
 
-    public BaseIdentifiableModel lookupByIdentity();
+    public BaseModel lookupByIdentity();
 
-    public <T extends BaseIdentifiableModel> Collection<T> getAll();
+    public <T extends BaseModel> Collection<T> getAll();
 }
