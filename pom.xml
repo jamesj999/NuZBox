@@ -12,6 +12,7 @@
         <module>nuzbox-engine</module>
         <module>nuzbox-frontend</module>
         <module>nuzbox-tasks</module>
+        <module>nuzbox-admin</module>
     </modules>
 
     <dependencies>
@@ -100,6 +101,13 @@
                         <webapp>
                             <groupId>com.nuzbox</groupId>
                             <artifactId>nuzbox-tasks</artifactId>
+                            <version>0.01</version>
+                            <type>war</type>
+                            <asWebapp>true</asWebapp>
+                        </webapp>
+                        <webapp>
+                            <groupId>com.nuzbox</groupId>
+                            <artifactId>nuzbox-admin</artifactId>
                             <version>0.01</version>
                             <type>war</type>
                             <asWebapp>true</asWebapp>
