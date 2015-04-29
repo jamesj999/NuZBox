@@ -12,7 +12,11 @@ public class CollectionCrossposts extends BaseModel {
     @Id
     private Long identity;
 
-    @OneToOne
+
+    @ManyToOne
+    private Collection collection;
+
+    @ManyToOne
     private Group group;
 
     @Column

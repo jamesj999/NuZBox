@@ -34,7 +34,7 @@ public class Collection extends BaseModel {
     @OneToOne
     private Release release;
 
-    @OneToMany
+    @OneToMany(mappedBy = "collection")
     private Set<CollectionCrossposts> crossposts;
 
     public Integer getIdentity() {

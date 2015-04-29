@@ -21,7 +21,7 @@ public class Binary extends BaseModel {
     @ManyToOne
     private Collection collection;
 
-    @OneToMany
+    @OneToMany(mappedBy = "binary")
     private Set<Part> parts;
 
     //totalParts maybe? or just size the damn Set
