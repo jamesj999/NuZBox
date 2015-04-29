@@ -1,6 +1,7 @@
 package com.nuzbox.model.service;
 
 import com.nuzbox.model.BaseModel;
+import org.hibernate.SessionFactory;
 
 import java.util.Collection;
 

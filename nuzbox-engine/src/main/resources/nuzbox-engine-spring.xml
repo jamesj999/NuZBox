@@ -36,5 +36,9 @@
         </constructor-arg>
     </bean>
 
-    <bean id="modelService" class="com.nuzbox.model.service.impl.DefaultModelService" scope="prototype"/>
+    <bean id="modelService" class="com.nuzbox.model.service.impl.DefaultModelService" scope="prototype">
+        <constructor-arg>
+            <ref bean="sessionFactory"/>
+        </constructor-arg>
+    </bean>
 </beans>

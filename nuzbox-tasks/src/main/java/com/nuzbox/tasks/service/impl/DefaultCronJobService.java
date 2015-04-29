@@ -24,6 +24,19 @@ public class DefaultCronJobService implements CronJobService {
 
     @Override
     public void initializeCronJobs() {
+        CronJob job1 = new CronJob();
+        job1.setEvenMoreShit("poop1");
+        job1.setSomeOtherShit("poop2");
+        job1.setEvenMoreShit("poop3");
+
+        CronJob job2 = new CronJob();
+        job2.setEvenMoreShit("poop5");
+        job2.setSomeOtherShit("poop4");
+        job2.setYetMoreShit("poop6");
+
+        modelService.save(job1);
+        modelService.save(job2);
+
         Collection<CronJob> cronJobs = modelService.<CronJob>getAll();
 
         LOG.info("Look at me, I got some jobs...");
