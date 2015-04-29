@@ -1,9 +1,20 @@
 package com.nuzbox.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * Created by Farrell on 29/04/2015.
  */
+@Entity
 public class Group {
+    @GeneratedValue
+    @Id
+    private Integer identity;
 
+    public Integer getIdentity() {
+        return identity;
+    }
     //TODO all the shit
 }

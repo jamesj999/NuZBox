@@ -1,9 +1,6 @@
 package com.nuzbox.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by Farrell on 29/04/2015.
@@ -15,9 +12,33 @@ public class CollectionCrossposts extends BaseModel {
     @Id
     private Long identity;
 
-    @Column
+    @OneToOne
     private Group group;
 
     @Column
     private Long recordRef;
+
+    public Long getIdentity() {
+        return identity;
+    }
+
+    public void setIdentity(Long identity) {
+        this.identity = identity;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public Long getRecordRef() {
+        return recordRef;
+    }
+
+    public void setRecordRef(Long recordRef) {
+        this.recordRef = recordRef;
+    }
 }

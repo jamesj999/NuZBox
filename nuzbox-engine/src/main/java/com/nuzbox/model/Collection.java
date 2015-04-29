@@ -31,11 +31,67 @@ public class Collection extends BaseModel {
     @Column
     private Date dateAdded;
 
-    @Column
     @OneToOne
     private Release release;
 
     @OneToMany
     private Set<CollectionCrossposts> crossposts;
+
+    public Integer getIdentity() {
+        return identity;
+    }
+
+    public void setIdentity(Integer identity) {
+        this.identity = identity;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Character[] getHash() {
+        return hash;
+    }
+
+    public void setHash(Character[] hash) {
+        this.hash = hash;
+    }
+
+    public Date getDateAdded() {
+        return dateAdded;
+    }
+
+    public void setDateAdded(Date dateAdded) {
+        this.dateAdded = dateAdded;
+    }
+
+    public Release getRelease() {
+        return release;
+    }
+
+    public void setRelease(Release release) {
+        this.release = release;
+    }
+
+    public Set<CollectionCrossposts> getCrossposts() {
+        return crossposts;
+    }
+
+    public void setCrossposts(Set<CollectionCrossposts> crossposts) {
+        this.crossposts = crossposts;
+    }
+
 
 }

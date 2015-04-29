@@ -19,11 +19,9 @@ public class Binary extends BaseModel {
     private Character[] name;
 
     @ManyToOne
-    @Column
     private Collection collection;
 
     @OneToMany
-    @JoinColumn
     private Set<Part> parts;
 
     //totalParts maybe? or just size the damn Set
