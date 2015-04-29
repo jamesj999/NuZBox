@@ -3,7 +3,6 @@ package com.nuzbox.model;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.util.Set;
 
 /**
  * Created by Farrell on 22/04/2015.
@@ -26,15 +25,14 @@ public class Part extends BaseModel {
     @ManyToOne
     private Binary binary;
 
-    @Type(type="com.nuzbox.persistence.types.PaddedStringType")
     @Column(length = 255)
-    private Character[] message;
+    private String message;
 
     public Part() {
 
     }
 
-    public Part(Binary binary, Character[] message, Long articleRef, Integer number, Long size) {
+    public Part(Binary binary, String message, Long articleRef, Integer number, Long size) {
         this.binary = binary;
         this.message = message;
         this.articleRef = articleRef;
@@ -46,11 +44,11 @@ public class Part extends BaseModel {
         return identity;
     }
 
-    public Character[] getMessage() {
+    public String getMessage() {
         return message;
     }
 
-    public void setMessage(Character[] message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 
