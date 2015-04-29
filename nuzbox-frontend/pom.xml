@@ -11,6 +11,14 @@
     <name>nuzbox-frontend</name>
     <url>file://${project.basedir}/nuzbox-frontend</url>
 
+    <repositories>
+        <repository>
+            <id>ZK CE</id>
+            <name>ZK CE Repository</name>
+            <url>http://mavensync.zkoss.org/maven2</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>com.nuzbox</groupId>

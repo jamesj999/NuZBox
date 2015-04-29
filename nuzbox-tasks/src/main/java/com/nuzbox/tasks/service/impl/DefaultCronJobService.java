@@ -37,12 +37,7 @@ public class DefaultCronJobService implements CronJobService {
 
     @Override
     public void shutdownCronJobs() {
-        // Stop quartz
-//        try {
-//            scheduler.shutdown();
-//        } catch (SchedulerException e) {
-//            LOG.error("Could not shutdown task scheduler.", e);
-//        }
+        // I guess we need to check if any are running and... wait? I dunno lol.
     }
 
 }

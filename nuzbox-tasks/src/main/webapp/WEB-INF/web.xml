@@ -19,7 +19,7 @@
 
     <context-param>
         <param-name>log4jConfigLocation</param-name>
-        <param-value>/WEB-INF/log4j.properties</param-value>
+        <param-value>classpath:log4j.properties</param-value>
     </context-param>
 
     <context-param>
@@ -47,7 +47,7 @@
     </context-param>
     <context-param>
         <param-name>quartz:config-file</param-name>
-        <param-value>/WEB-INF/quartz.properties</param-value>
+        <param-value>quartz.properties</param-value>
     </context-param>
 
     <listener>

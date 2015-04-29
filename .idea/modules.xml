@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/NuZBox.iml" filepath="$PROJECT_DIR$/.idea/NuZBox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nuzbox-admin/nuzbox-admin.iml" filepath="$PROJECT_DIR$/nuzbox-admin/nuzbox-admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/nuzbox-engine/nuzbox-engine.iml" filepath="$PROJECT_DIR$/nuzbox-engine/nuzbox-engine.iml" />
       <module fileurl="file://$PROJECT_DIR$/nuzbox-frontend/nuzbox-frontend.iml" filepath="$PROJECT_DIR$/nuzbox-frontend/nuzbox-frontend.iml" />
       <module fileurl="file://$PROJECT_DIR$/nuzbox-tasks/nuzbox-tasks.iml" filepath="$PROJECT_DIR$/nuzbox-tasks/nuzbox-tasks.iml" />
