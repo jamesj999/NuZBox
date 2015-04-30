@@ -26,7 +26,7 @@ public class Collection extends BaseModel {
 
     @Type(type="com.nuzbox.persistence.types.PaddedStringType")
     @Column(length = 255)
-    private Character[] hash;
+    private String hash;
 
     @Column
     private Date dateAdded;
@@ -57,11 +57,11 @@ public class Collection extends BaseModel {
         this.date = date;
     }
 
-    public Character[] getHash() {
+    public String getHash() {
         return hash;
     }
 
-    public void setHash(Character[] hash) {
+    public void setHash(String hash) {
         this.hash = hash;
     }
 

@@ -14,9 +14,8 @@ public class Binary extends BaseModel {
     @GeneratedValue @Id
     private Long identity;
 
-    @Type(type="com.nuzbox.persistence.types.PaddedStringType")
     @Column(length = 1000)
-    private Character[] name;
+    private String name;
 
     @ManyToOne
     private Collection collection;
@@ -26,9 +25,8 @@ public class Binary extends BaseModel {
 
     //totalParts maybe? or just size the damn Set
 
-    @Type(type="com.nuzbox.persistence.types.PaddedStringType")
     @Column(length = 255)
-    private Character[] hash;
+    private String hash;
 
     @Column
     private Long size;
@@ -37,11 +35,11 @@ public class Binary extends BaseModel {
         return identity;
     }
 
-    public Character[] getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Character[] name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -61,11 +59,11 @@ public class Binary extends BaseModel {
         this.parts = parts;
     }
 
-    public Character[] getHash() {
+    public String getHash() {
         return hash;
     }
 
-    public void setHash(Character[] hash) {
+    public void setHash(String hash) {
         this.hash = hash;
     }
 
