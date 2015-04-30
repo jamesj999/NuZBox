@@ -18,7 +18,7 @@ public class CronJob extends BaseModel {
     @Column
     private String testAttribute;
 
-    @Column
+    @Column(nullable = false)
     private String anotherTestAttribute;
 
     public long getIdentity() {

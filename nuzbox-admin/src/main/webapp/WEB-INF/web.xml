@@ -7,6 +7,22 @@
 	<description><![CDATA[My ZK Application]]></description>
 	<display-name>nuzbox-admin</display-name>
 
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>classpath:log4j.properties</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>log4jExposeWebAppRoot</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>
+			org.springframework.web.util.Log4jConfigListener
+		</listener-class>
+	</listener>
+
 	<!-- //// -->
 	<!-- ZK -->
 	<listener>
