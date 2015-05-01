@@ -6,7 +6,9 @@ import com.nuzbox.admin.attribute.exception.AttributeValidatorTypeException;
 import com.nuzbox.admin.attribute.exception.AttributeValueException;
 import com.nuzbox.admin.attribute.validation.AttributeValidator;
 import com.nuzbox.model.BaseModel;
+import com.nuzbox.model.service.ModelService;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ReflectionUtils;
 
 import java.lang.reflect.Method;
@@ -16,21 +18,26 @@ import java.util.List;
 /**
  * Created by Jamesjohnstone on 30/04/15.
  */
-public abstract class AttributeProperty {
-    protected String attributeQualifier;
-    protected Class attributeClass;
+public class AttributeProperty {
+    @Autowired
+    private ModelService modelService;
+
     protected BaseModel item;
+    protected String attributeQualifier;
+    protected String attributeName;
+    protected Class attributeClass;
     protected List<AttributeValidator> validators;
     protected Object currentValue;
     protected Object originalValue;
 
     private static final Logger LOG = Logger.getLogger(AttributeProperty.class);
 
-    public AttributeProperty(String attributeQualifier, Class attributeClass, List<AttributeValidator> validators) throws AttributeException {
+    public AttributeProperty(BaseModel item, String attributeQualifier, String attributeName, Class attributeClass, List<AttributeValidator> validators) throws AttributeException {
+        this.item = item;
         this.attributeQualifier = attributeQualifier;
+        this.attributeName = attributeName;
         // Unfortunately, we can't ascertain the attribute class if it is currently null
         this.attributeClass = attributeClass;
-        this.item = item;
         this.validators = (validators == null) ? Collections.EMPTY_LIST : validators;
 
         validateValidators();
@@ -38,7 +45,7 @@ public abstract class AttributeProperty {
         originalValue = getCurrentValueFromItem();
     }
 
-    protected Object getCurrentValueFromItem() throws AttributeValueException {
+    public Object getCurrentValueFromItem() throws AttributeValueException {
         String attributeQualifierFirstCapitalised = attributeQualifier.substring(0, 1).toUpperCase() + attributeQualifier.substring(1);
         LOG.info("Parsed aq: " + attributeQualifierFirstCapitalised);
         Method method = ReflectionUtils.findMethod(item.getClass(), "get" + attributeQualifierFirstCapitalised);
@@ -52,6 +59,18 @@ public abstract class AttributeProperty {
         }
 
         return valueFromItem;
+    }
+
+    public Object getCurrentValue() {
+        return currentValue;
+    }
+
+    public void setCurrentValue(Object currentValue) {
+        this.currentValue = currentValue;
+    }
+
+    public String getAttributeName() {
+        return attributeName;
     }
 
     // yo dawg, herd u liek validating

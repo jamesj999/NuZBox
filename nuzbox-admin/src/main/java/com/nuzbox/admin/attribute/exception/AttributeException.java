@@ -4,7 +4,6 @@ package com.nuzbox.admin.attribute.exception;
  * Created by Jamesjohnstone on 30/04/15.
  */
 public abstract class AttributeException extends Exception {
-
     // pass that shit up the chain
 
     public AttributeException(String message) {
