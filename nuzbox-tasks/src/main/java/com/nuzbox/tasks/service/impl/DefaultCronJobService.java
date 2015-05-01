@@ -3,6 +3,7 @@ package com.nuzbox.tasks.service.impl;
 import com.nuzbox.model.CronJob;
 import com.nuzbox.model.service.ModelService;
 import com.nuzbox.tasks.service.CronJobService;
+import com.nuzbox.tasks.tasks.CronJobPerformableInterface;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,7 +26,23 @@ public class DefaultCronJobService implements CronJobService {
     @Override
     public void initializeCronJobs() {
 
-        // Initialize those shits
+        Collection<CronJob> cronJobs = modelService.getAll();
+
+        for (CronJob cronJob : cronJobs) {
+            String performableClass = cronJob.getPerformableClass();
+            try {
+                if (!performableClass.trim().isEmpty()) {
+                    Class<?> cfi = Class.forName(performableClass);
+                    CronJobPerformableInterface cjp = (CronJobPerformableInterface) cfi.newInstance();
+
+                    //TODO schedule this badboy
+                    cjp.init();
+                }
+            }
+            catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
+                LOG.error("Could not instantiate performable",e);
+            }
+        }
     }
 
     @Override
