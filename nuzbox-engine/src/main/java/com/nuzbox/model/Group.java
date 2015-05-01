@@ -12,17 +12,17 @@ public class Group {
     @Id
     private Integer identity;
 
+    @Column
     @OneToMany(mappedBy = "group")
     private Set<CollectionCrossposts> crossposts;
+
 
     public Integer getIdentity() {
         return identity;
     }
-
     public Set<CollectionCrossposts> getCrossposts() {
         return crossposts;
     }
-
     public void setCrossposts(Set<CollectionCrossposts> crossposts) {
         this.crossposts = crossposts;
     }
