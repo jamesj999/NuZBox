@@ -10,6 +10,7 @@
    <title>Hello Spring MVC</title>
    </head>
    <body>
+       ${article}
        <c:choose>
            <c:when test="${pageContext.request.userPrincipal.name != null}">
                 <h2>Logged in as: ${pageContext.request.userPrincipal.name}</h2>
