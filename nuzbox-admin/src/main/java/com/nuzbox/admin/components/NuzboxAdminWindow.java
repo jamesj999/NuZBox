@@ -61,10 +61,13 @@ public class NuzboxAdminWindow extends Window {
     private Center generateCenter() {
         Center centre = new Center();
 
+        CronJob testJob = new CronJob();
+        testJob.setTestAttribute("Testing123");
+
         AttributeProperty testAttributeAttributeProperty;
 
         try {
-            testAttributeAttributeProperty = new AttributeProperty(new CronJob(), "testAttribute", "Test Attribute", String.class, Collections.EMPTY_LIST);
+            testAttributeAttributeProperty = new AttributeProperty(testJob, "testAttribute", "Test Attribute", String.class, Collections.EMPTY_LIST);
         } catch(AttributeException e) {
             LOG.error(e);
             return centre;

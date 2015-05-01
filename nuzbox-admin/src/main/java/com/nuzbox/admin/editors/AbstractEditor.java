@@ -5,13 +5,14 @@ import com.nuzbox.admin.attribute.exception.AttributeException;
 import com.nuzbox.admin.attribute.exception.AttributeValidationException;
 import org.zkoss.zk.ui.AbstractComponent;
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.HtmlBasedComponent;
 import org.zkoss.zul.Hbox;
 import org.zkoss.zul.Label;
 
 /**
  * Created by Jamesjohnstone on 01/05/15.
  */
-public abstract class AbstractEditor extends AbstractComponent implements Editor {
+public abstract class AbstractEditor extends Hbox {
     protected AttributeProperty attributeProperty;
     private Component editorComponent;
 
@@ -21,16 +22,13 @@ public abstract class AbstractEditor extends AbstractComponent implements Editor
     public AbstractEditor(AttributeProperty attributeProperty) {
         this.attributeProperty = attributeProperty;
 
-        Hbox mainLayout = new Hbox();
         attributeLabel = new Label(attributeProperty.getAttributeName());
         editorComponent = getEditorComponent();
 
-        mainLayout.appendChild(attributeLabel);
-        mainLayout.appendChild(editorComponent);
+        appendChild(attributeLabel);
+        appendChild(editorComponent);
 
         setValue(editorComponent, attributeProperty.getCurrentValue());
-
-        appendChild(mainLayout);
     }
 
     public boolean validate() {
@@ -64,8 +62,8 @@ public abstract class AbstractEditor extends AbstractComponent implements Editor
         return null;
     }
 
-    @Override
-    public String getWidgetClass() {
-        return "nuzbox";
-    }
+//    @Override
+//    public String getWidgetClass() {
+//        return "nuzbox";
+//    }
 }
