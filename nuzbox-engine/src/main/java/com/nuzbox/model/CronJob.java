@@ -9,7 +9,7 @@ import javax.persistence.Id;
  * Created by james on 24/04/15.
  */
 @Entity
-public class CronJob extends BaseModel {
+public class CronJob extends BaseVersionedModel {
 
     @Id
     @GeneratedValue
@@ -21,23 +21,24 @@ public class CronJob extends BaseModel {
     @Column(nullable = false)
     private String anotherTestAttribute;
 
+    @Column(nullable = false)
+    private String performableClass;
+
+    public String getPerformableClass() {
+        return performableClass;
+    }
+    public void setPerformableClass(String performableClass) {this.performableClass = performableClass;}
     public long getIdentity() {
         return identity;
     }
-
     public String getTestAttribute() {
         return testAttribute;
     }
-
     public void setTestAttribute(String testAttribute) {
         this.testAttribute = testAttribute;
     }
-
     public String getAnotherTestAttribute() {
         return anotherTestAttribute;
     }
-
-    public void setAnotherTestAttribute(String anotherTestAttribute) {
-        this.anotherTestAttribute = anotherTestAttribute;
-    }
+    public void setAnotherTestAttribute(String anotherTestAttribute) {this.anotherTestAttribute = anotherTestAttribute;}
 }
