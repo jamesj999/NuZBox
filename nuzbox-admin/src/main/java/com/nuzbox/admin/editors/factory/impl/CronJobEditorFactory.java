@@ -3,7 +3,7 @@ package com.nuzbox.admin.editors.factory.impl;
 import com.nuzbox.admin.attribute.AttributeProperty;
 import com.nuzbox.admin.attribute.exception.AttributeException;
 import com.nuzbox.admin.attribute.validation.AttributeValidator;
-import com.nuzbox.admin.attribute.validation.impl.NotNullAttributeValidator;
+import com.nuzbox.admin.attribute.validation.impl.StringNotBlankAttributeValidator;
 import com.nuzbox.admin.editors.AbstractEditor;
 import com.nuzbox.admin.editors.factory.NuzboxEditorFactory;
 import com.nuzbox.admin.editors.impl.TextEditor;
@@ -23,7 +23,6 @@ public class CronJobEditorFactory extends NuzboxEditorFactory {
 
     public CronJobEditorFactory(CronJob item) {
         super(item);
-        // Some other oogady boo? I dunno.
     }
 
     @Override
@@ -31,7 +30,7 @@ public class CronJobEditorFactory extends NuzboxEditorFactory {
         List<AbstractEditor> editors = new ArrayList<AbstractEditor>();
 
         List<AttributeValidator> testAttributeValidators = new ArrayList<AttributeValidator>();
-        testAttributeValidators.add(new NotNullAttributeValidator("testAttributeNotNull"));
+        testAttributeValidators.add(new StringNotBlankAttributeValidator("testAttributeNotBlank"));
 
         AttributeProperty testAttributeAttributeProperty;
         AttributeProperty anotherTestAttributeAttributeProperty;

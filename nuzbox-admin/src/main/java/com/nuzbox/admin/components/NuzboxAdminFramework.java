@@ -4,7 +4,6 @@ package com.nuzbox.admin.components;
 import com.nuzbox.admin.ApplicationContextProvider;
 import com.nuzbox.admin.editors.AbstractEditor;
 import com.nuzbox.admin.editors.factory.NuzboxEditorFactory;
-import com.nuzbox.admin.editors.factory.impl.CronJobEditorFactory;
 import com.nuzbox.model.CronJob;
 import com.nuzbox.model.service.ModelService;
 import org.apache.log4j.Logger;
@@ -81,18 +80,17 @@ public class NuzboxAdminFramework extends Window {
 
         NuzboxEditorFactory factory = null;
 
-//        try {
+        try {
             if (factoryConstructor != null) {
-                factory = new CronJobEditorFactory(testJob);
-                //factory = (NuzboxEditorFactory) factoryConstructor.newInstance(testJob);
+                factory = (NuzboxEditorFactory) factoryConstructor.newInstance(testJob);
             }
-//        } catch (InvocationTargetException e) {
-//            e.printStackTrace();
-//        } catch (InstantiationException e) {
-//            e.printStackTrace();
-//        } catch (IllegalAccessException e) {
-//            e.printStackTrace();
-//        }
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
 
         Vbox layout = new Vbox();
         centre.appendChild(layout);

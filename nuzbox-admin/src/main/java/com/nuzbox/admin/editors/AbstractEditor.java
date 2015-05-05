@@ -88,6 +88,7 @@ public abstract class AbstractEditor extends Hbox {
             @Override
             public void onEvent(Event event) {
                 attributeProperty.setCurrentValue(getValue(component));
+                validate();
             }
         };
     }
