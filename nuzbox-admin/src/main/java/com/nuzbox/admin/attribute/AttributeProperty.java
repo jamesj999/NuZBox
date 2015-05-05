@@ -45,8 +45,8 @@ public class AttributeProperty {
         originalValue = getCurrentValueFromItem();
     }
 
-    public Object getCurrentValueFromItem() throws AttributeValueException {
-        String attributeQualifierFirstCapitalised = attributeQualifier.substring(0, 1).toUpperCase() + attributeQualifier.substring(1);
+    protected Object getCurrentValueFromItem() throws AttributeValueException {
+        String attributeQualifierFirstCapitalised = capitaliseFirstCharacter(attributeQualifier);
         LOG.info("Parsed aq: " + attributeQualifierFirstCapitalised);
         Method method = ReflectionUtils.findMethod(item.getClass(), "get" + attributeQualifierFirstCapitalised);
         if (method == null) {
@@ -59,6 +59,22 @@ public class AttributeProperty {
         }
 
         return valueFromItem;
+    }
+
+    protected void setCurrentValueOnItem() throws AttributeValueException {
+        String attributeQualifierFirstCapitalised = capitaliseFirstCharacter(attributeQualifier);
+
+        Method method = ReflectionUtils.findMethod(item.getClass(), "set" + attributeQualifierFirstCapitalised, attributeClass);
+        if (method == null) {
+            throw new AttributeValueException("Cannot find method: set" + attributeQualifierFirstCapitalised + " on Item: " + item);
+        }
+
+        // Test this with an incorrect input and see if it throws an exception or wut:
+        ReflectionUtils.invokeMethod(method, item, currentValue);
+    }
+
+    private String capitaliseFirstCharacter(String input) {
+        return input.substring(0, 1).toUpperCase() + attributeQualifier.substring(1);
     }
 
     public Object getCurrentValue() {
@@ -83,12 +99,14 @@ public class AttributeProperty {
     }
 
     public void validate() throws AttributeValidationException {
-        for(AttributeValidator validator : validators) {
+        for (AttributeValidator validator : validators) {
             validator.validate(currentValue);
         }
     }
 
-    public void save() {
+    public void save() throws AttributeValueException {
+        setCurrentValueOnItem();
+        save();
         // Use the model service to save the attribute...
     }
 }
