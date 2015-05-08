@@ -36,7 +36,7 @@ public class CronJobEditorFactory extends NuzboxEditorFactory {
         AttributeProperty anotherTestAttributeAttributeProperty;
 
         try {
-            testAttributeAttributeProperty = new AttributeProperty(item, "testAttribute", "Test Attribute", String.class, testAttributeValidators);
+            testAttributeAttributeProperty = new AttributeProperty(item, "testAttribute", "Test123 Attribute", String.class, testAttributeValidators);
             anotherTestAttributeAttributeProperty = new AttributeProperty(item, "anotherTestAttribute", "Another Test Attribute", String.class, null);
         } catch(AttributeException e) {
             // lol i duno bruv
