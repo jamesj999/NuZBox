@@ -61,7 +61,7 @@ public abstract class NuzboxEditorFactory {
                     }
                 }
                 if (!valid) {
-                    Messagebox.show("Error", "Some bad shit went down, yo", Messagebox.OK, Messagebox.ERROR);
+                    Messagebox.show("Some bad shit went down, yo", "Error", Messagebox.OK, Messagebox.ERROR);
                 }
             }
         });

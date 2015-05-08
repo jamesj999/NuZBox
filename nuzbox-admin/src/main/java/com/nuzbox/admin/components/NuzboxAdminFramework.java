@@ -4,6 +4,7 @@ package com.nuzbox.admin.components;
 import com.nuzbox.admin.ApplicationContextProvider;
 import com.nuzbox.admin.editors.AbstractEditor;
 import com.nuzbox.admin.editors.factory.NuzboxEditorFactory;
+import com.nuzbox.admin.editors.factory.NuzboxEditorFactoryResolver;
 import com.nuzbox.model.CronJob;
 import com.nuzbox.model.service.ModelService;
 import org.apache.log4j.Logger;
@@ -21,8 +22,6 @@ public class NuzboxAdminFramework extends Window {
     @Autowired
     private ModelService modelService;
 
-    private Map<Class, Class> editorFactoryMap = (Map<Class, Class>) ApplicationContextProvider.getApplicationContext().getBean("editorFactoryMap");
-
     private static final Logger LOG = Logger.getLogger(NuzboxAdminFramework.class);
 
     public NuzboxAdminFramework() {
@@ -30,9 +29,6 @@ public class NuzboxAdminFramework extends Window {
             LOG.error("modelService is null");
         }
 
-        if (editorFactoryMap == null) {
-            LOG.error("editorFactoryMap is null");
-        }
         setHeight("100%");
         setWidth("100%");
         setVisible(true);
@@ -70,27 +66,7 @@ public class NuzboxAdminFramework extends Window {
         CronJob testJob = new CronJob();
         testJob.setTestAttribute("Testing123");
 
-        Class factoryClass = editorFactoryMap.get(CronJob.class);
-        Constructor factoryConstructor = null;
-        try {
-            factoryConstructor = factoryClass.getConstructor(CronJob.class);
-        } catch (NoSuchMethodException e) {
-            LOG.error(e);
-        }
-
-        NuzboxEditorFactory factory = null;
-
-        try {
-            if (factoryConstructor != null) {
-                factory = (NuzboxEditorFactory) factoryConstructor.newInstance(testJob);
-            }
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        NuzboxEditorFactory factory = NuzboxEditorFactoryResolver.resolveFactoryForItem(testJob);
 
         Vbox layout = new Vbox();
         centre.appendChild(layout);
